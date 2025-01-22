@@ -1,6 +1,6 @@
-# LukeNet Documentation
+# LukeNet
 
-`LukeNet` is a Python software package that numerically solves time-dependent chemical reaction networks in astrophysical environments. The code is optimized for modeling complex chemical evolution in settings such as the interstellar medium (ISM), molecular clouds, and protoplanetary disks.
+`LukeNet` is a Python software package that numerically solves time-dependent chemical reaction networks for astrophysical environments. The code is optimized for modeling complex chemical evolution in settings such as the interstellar medium (ISM), molecular clouds, and protoplanetary disks.
 
 ## Installation
 
@@ -28,7 +28,7 @@ analysis.plot_abundance(['CO', 'H2O', 'CH4'])
 
 ## Chemical Model
 
-The chemical model in LukeNet follows the standard rate equation approach to evolve molecular abundances under specified physical conditions. The model solves a system of coupled ordinary differential equations (ODEs) that describe the time evolution of species number densities:
+The chemical model in `LukeNet` follows the standard rate equation approach to evolve molecular abundances under specified physical conditions. The model solves a system of coupled ordinary differential equations (ODEs) that describe the time evolution of species number densities:
 
 $$
 \frac{dn(i,t)}{dt} = \sum_j k_{ij} n(j,t) + \sum_{jl} k_{ijl} n(j,t) n(l,t)
@@ -38,10 +38,10 @@ where $n(i,t)$ is the abundance ($\small{\text{cm}}^{-3}$) of species $i$ at tim
 ### Gas-phase process
 
 #### Gas-phase reactions
-Gas-phase reactions follow standard temperature-dependent rate coefficients of the modified Arrhenius form:
+Gas-phase reactions follow standard temperature-dependent rate coefficients ($\small{k}$) of the modified Arrhenius form:
 
 $$
-k(T) = \alpha \left(\frac{T_\text{gas}}{300\,\text{K}}\right)^\beta \exp\left(-\frac{\gamma}{T_\text{gas}}\right)
+k = \alpha \left(\frac{T_\text{gas}}{300\,\text{K}}\right)^\beta \exp\left(-\frac{\gamma}{T_\text{gas}}\right)
 $$
 where $\alpha$, $\beta$, and $\gamma$ are reaction-specific parameters, and $T_\text{gas}$ is the gas temperature. Each reaction has defined temperature limits ($T_\text{min}$ and $T_\text{max}$) that constrain its validity range.
 
@@ -49,7 +49,7 @@ where $\alpha$, $\beta$, and $\gamma$ are reaction-specific parameters, and $T_\
 Photochemical processes, including direct photodissociation and photoionization, are parametrized using the standard form:
 
 $$
-k_\text{ph} = \alpha \beta G_0 \exp(-\gamma A_\text{V})
+k = \alpha \beta G_0 \exp(-\gamma A_\text{V})
 $$
 where $G_0$ is the FUV field strength in Draine units ($\sim 2.7 \times 10^{-3} \; \text{erg s} ^{-3}\text{cm}^{-2}$), $A_\text{V}$ is the visual extinction, and $\alpha$, $\beta$, and $\gamma$ are reaction-specific parameters. The model can optionally account for self-shielding effects in $\small{\text{CO}}$, $\small{\text{N}}_2$ , $\small{\text{H}}_2$, and atomic $\small{\text{C}}$, following the prescriptions of [Visser et al. (2009)](https://ui.adsabs.harvard.edu/abs/2009A%26A...503..323V/abstract),[Visser et al. (2018)](https://ui.adsabs.harvard.edu/abs/2018A%26A...615A..75V/abstract), [Draine & Bertoldi (1996)](https://ui.adsabs.harvard.edu/abs/1996ApJ...468..269D/abstract), and [Kamp & Bertoldi (2000)](https://ui.adsabs.harvard.edu/abs/2000A%26A...353..276K/abstract), repsectively.
 
@@ -80,11 +80,11 @@ Code overview goes here
 
 ## Graphical User Interface (GUI)
 
-To enhance accessibility and user workflow, LukeNet includes a graphical interface implemented in React that integrates the core solver with interactive visualization capabilities (Figure \ref{fig_gui}). The GUI is included as part of the standard \texttt{pip} installation and can be launched locally, facilitating efficient exploration of chemical models by enabling real-time manipulation of physical parameters and visualization of results.
+To enhance accessibility and user workflow, `LukeNet` includes a graphical interface implemented in React that integrates the core solver with interactive visualization capabilities (Figure \ref{fig_gui}). The GUI is included as part of the standard \texttt{pip} installation and can be launched locally, facilitating efficient exploration of chemical models by enabling real-time manipulation of physical parameters and visualization of results.
 
 The interface provides dynamic visualization of abundance evolution, reaction rates, and chemical pathways, with comprehensive customization options. Species and reactions can be filtered based on abundance thresholds or selected manually to investigate specific chemical processes. Publication-quality figures can be exported in vector format (SVG), while numerical data can be extracted in standard formats for further analysis.
 
-A key strength of LukeNet's GUI is its ability to rapidly analyse parameter dependencies without the computational overhead of full multi-dimensional models. While codes like `DALI` [(Bruderer et al. 2012)](https://ui.adsabs.harvard.edu/abs/2012A%26A...541A..91B/abstract) provide comprehensive modelling capabilities, analysing the vast output from high-resolution models (often hundreds of gigabytes) can be cumbersome. The LukeNet GUI complements such models by allowing users to efficiently explore chemical evolution under varying conditions at specific points of interest. This makes it particularly valuable for investigating reaction mechanisms, understanding parameter sensitivities, and analysing localized chemical processes.
+A key strength of the GUI is its ability to rapidly analyse parameter dependencies without the computational overhead of full multi-dimensional models. While codes like `DALI` [(Bruderer et al. 2012)](https://ui.adsabs.harvard.edu/abs/2012A%26A...541A..91B/abstract) provide comprehensive modelling capabilities, analysing the vast output from high-resolution models (often hundreds of gigabytes) can be cumbersome. The `LukeNet` GUI complements such models by allowing users to efficiently explore chemical evolution under varying conditions at specific points of interest. This makes it particularly valuable for investigating reaction mechanisms, understanding parameter sensitivities, and analysing localized chemical processes.
 
 
 ## Troubleshooting
