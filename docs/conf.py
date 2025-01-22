@@ -10,8 +10,11 @@ extensions = [
 
 myst_enable_extensions = [
     "dollarmath",
-    "amsmath"
+    "amsmath",
+    "colon_fence"
 ]
+
+myst_update_mathjax = False
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
