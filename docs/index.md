@@ -1,10 +1,10 @@
 # LukeNet Documentation
 
-LukeNet is a Python software package that numerically solves time-dependent chemical reaction networks in astrophysical environments. The code is optimized for modeling complex chemical evolution in settings such as the interstellar medium (ISM), molecular clouds, and protoplanetary disks.
+`LukeNet` is a Python software package that numerically solves time-dependent chemical reaction networks in astrophysical environments. The code is optimized for modeling complex chemical evolution in settings such as the interstellar medium (ISM), molecular clouds, and protoplanetary disks.
 
 ## Installation
 
-LukeNet can be installed using pip:
+`LukeNet` can be installed using pip:
 ```bash
 pip install lukenet
 ```
@@ -33,7 +33,7 @@ The chemical model in LukeNet follows the standard rate equation approach to evo
 $$
 \frac{dn(i,t)}{dt} = \sum_j k_{ij} n(j,t) + \sum_{jl} k_{ijl} n(j,t) n(l,t)
 $$
-where $n(i,t)$ is the abundance (cm$^{-3}$) of species $i$ at time $t$, and $k_{ij}$ and $k_{ijl}$ are the respective destruction and formation rates of a given species.
+where $n(i,t)$ is the abundance ($\small{\text{cm}}^{-3}$) of species $i$ at time $t$, and $k_{ij}$ and $k_{ijl}$ are the respective destruction and formation rates of a given species.
 
 ### Gas-phase process
 
@@ -51,7 +51,7 @@ Photochemical processes, including direct photodissociation and photoionization,
 $$
 k_\text{ph} = \alpha \beta G_0 \exp(-\gamma A_\text{V})
 $$
-where $G_0$ is the FUV field strength in Draine units $\sim 2.7 \times 10^{-3} \; \text{erg s} ^{-3}\text{cm}^{-2}$, integrated between $911-2067 \AA$, $A_\text{V}$ is the visual extinction, and $\alpha$, $\beta$, and $\gamma$ are reaction-specific parameters. The model can optionally account for self-shielding effects in $\small{\text{CO}}$, $\small{\text{N}}_2$ , $\small{\text{H}}_2$, and atomic $\small{\text{C}}$, following the prescriptions of Visser et al. (2009),Visser et al. (2018), Draine & Bertoldi (1996), and Kamp & Bertoldi (2000), repsectively.
+where $G_0$ is the FUV field strength in Draine units ($\sim 2.7 \times 10^{-3} \; \text{erg s} ^{-3}\text{cm}^{-2}$), $A_\text{V}$ is the visual extinction, and $\alpha$, $\beta$, and $\gamma$ are reaction-specific parameters. The model can optionally account for self-shielding effects in $\small{\text{CO}}$, $\small{\text{N}}_2$ , $\small{\text{H}}_2$, and atomic $\small{\text{C}}$, following the prescriptions of [Visser et al. (2009)](https://ui.adsabs.harvard.edu/abs/2009A%26A...503..323V/abstract),[Visser et al. (2018)](https://ui.adsabs.harvard.edu/abs/2018A%26A...615A..75V/abstract), [Draine & Bertoldi (1996)](https://ui.adsabs.harvard.edu/abs/1996ApJ...468..269D/abstract), and [Kamp & Bertoldi (2000)](https://ui.adsabs.harvard.edu/abs/2000A%26A...353..276K/abstract), repsectively.
 
 To calculate these self-shielding factors, the code requires the total hydrogen ($\small{H}+{H}_2$) column density between the point of interest and the UV source (denoted $\small{N}_\text{H}$). This can be provided directly by the user, or alternatively, can be approximated using the standard relationship between hydrogen column density and visual extinction eg. [Guver & Ozel (2009)](https://ui.adsabs.harvard.edu/abs/2009MNRAS.400.2050G/abstract):
 
@@ -70,42 +70,22 @@ The model also includes cosmic-ray and X-ray ionization processes, with both dir
 
 ### Grain processes
 
-Grain-surface chemistry incorporates $\small{\text{H}}_2$ formation, hydrogenation, freeze-out, thermal desorption, and photodesorption processes. The $\small{\text{H}}_2$ formation rate on grains follows a temperature-dependent efficiency formalism that accounts for both physisorption and chemisorption binding sites (Cazaux & Tielens 2002, 2004; Bosman et al. 2022a). Hydrogenation, thermal desorption, and photodesorption are implemented following Visser et al. (2011).
+Grain-surface chemistry incorporates $\small{\text{H}}_2$ formation, hydrogenation, freeze-out, thermal desorption, and photodesorption processes. The $\small{\text{H}}_2$ formation rate on grains follows a temperature-dependent efficiency formalism that accounts for both physisorption and chemisorption binding sites ([Cazaux & Tielens 2002](https://ui.adsabs.harvard.edu/abs/2002ApJ...575L..29C/abstract), [2004](https://ui.adsabs.harvard.edu/abs/2004ApJ...604..222C/abstract); [Bosman et al. 2022a](https://ui.adsabs.harvard.edu/abs/2022ApJ...930L..26B/abstract)). Hydrogenation, thermal desorption, and photodesorption are implemented following [Visser et al. (2011)](https://ui.adsabs.harvard.edu/abs/2011A%26A...534A.132V/abstract).
 
 
 
 ## Code Overview
 
-### lukenet.process_data()
-Processes input data and returns results.
-
-Parameters:
-- data (array): Input data array
-- method (str): Processing method ['fast', 'accurate']
-
-Returns:
-- dict: Processed results
-
-### lukenet.plot_data()
-Creates visualization of processed data.
-
-Parameters:
-- result (dict): Output from process_data()
-- style (str, optional): Plot style ['line', 'scatter']
-
-Returns:
-- Figure object
+Code overview goes here
 
 ## Graphical User Interface (GUI)
-Settings can be modified in `config.yaml`:
-```yaml
-processing:
-  method: fast
-  threads: 4
-visualization:
-  style: line
-  dpi: 300
-```
+
+To enhance accessibility and user workflow, LukeNet includes a graphical interface implemented in React that integrates the core solver with interactive visualization capabilities (Figure \ref{fig_gui}). The GUI is included as part of the standard \texttt{pip} installation and can be launched locally, facilitating efficient exploration of chemical models by enabling real-time manipulation of physical parameters and visualization of results.
+
+The interface provides dynamic visualization of abundance evolution, reaction rates, and chemical pathways, with comprehensive customization options. Species and reactions can be filtered based on abundance thresholds or selected manually to investigate specific chemical processes. Publication-quality figures can be exported in vector format (SVG), while numerical data can be extracted in standard formats for further analysis.
+
+A key strength of LukeNet's GUI is its ability to rapidly analyse parameter dependencies without the computational overhead of full multi-dimensional models. While codes like `DALI` [(Bruderer et al. 2012)](https://ui.adsabs.harvard.edu/abs/2012A%26A...541A..91B/abstract) provide comprehensive modelling capabilities, analysing the vast output from high-resolution models (often hundreds of gigabytes) can be cumbersome. The LukeNet GUI complements such models by allowing users to efficiently explore chemical evolution under varying conditions at specific points of interest. This makes it particularly valuable for investigating reaction mechanisms, understanding parameter sensitivities, and analysing localized chemical processes.
+
 
 ## Troubleshooting
 
