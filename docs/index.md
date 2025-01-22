@@ -37,6 +37,7 @@ where $n(i,t)$ is the abundance (cm $^{-3}$) of species $i$ at time $t$, and $k_
 
 #### Gas-phase reactions
 Gas-phase reactions follow standard temperature-dependent rate coefficients of the modified Arrhenius form:
+
 $$
 k(T) = \alpha \left(\frac{T_\text{gas}}{300\,\text{K}}\right)^\beta \exp\left(-\frac{\gamma}{T_\text{gas}}\right)
 $$
