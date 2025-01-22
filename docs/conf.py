@@ -1,7 +1,3 @@
-import os
-import sys
-sys.path.insert(0, os.path.abspath('.'))
-
 project = 'lukenet'
 copyright = '2025, Luke Keyte'
 author = 'Luke Keyte'
@@ -11,12 +7,12 @@ extensions = [
     'myst_parser',
     'sphinx.ext.mathjax'
 ]
-mathjax3_config = {
-    'tex': {
-        'inlineMath': [['$', '$'], ['\\(', '\\)']],
-        'displayMath': [['$$', '$$'], ['\\[', '\\]']]
-    }
-}
+
+myst_enable_extensions = [
+    "dollarmath",
+    "amsmath"
+]
+
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
