@@ -26,7 +26,7 @@ analysis.plot_abundance(['CO', 'H2O', 'CH4'])
 
 ## Chemical Model
 
-The chemical model in \textsc{lukenet} follows the standard rate equation approach to evolve molecular abundances under specified physical conditions. The model solves a system of coupled ordinary differential equations (ODEs) that describe the time evolution of species number densities:
+The chemical model in LukeNet follows the standard rate equation approach to evolve molecular abundances under specified physical conditions. The model solves a system of coupled ordinary differential equations (ODEs) that describe the time evolution of species number densities:
 
 $$
 \frac{dn(i,t)}{dt} = \sum_j k_{ij} n(j,t) + \sum_{jl} k_{ijl} n(j,t) n(l,t)
@@ -45,6 +45,7 @@ where $\alpha$, $\beta$, and $\gamma$ are reaction-specific parameters, and $T_\
 
 #### Photodissociation and photoionization
 Photochemical processes, including direct photodissociation and photoionization, are parametrized using the standard form:
+
 $$
 k_\text{ph} = \alpha \beta G_0 \exp(-\gamma A_\text{V})
 $$
