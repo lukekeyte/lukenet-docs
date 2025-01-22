@@ -7,7 +7,16 @@ copyright = '2025, Luke Keyte'
 author = 'Luke Keyte'
 release = '1.0'
 
-extensions = ['myst_parser']
+extensions = [
+    'myst_parser',
+    'sphinx.ext.mathjax'
+]
+mathjax3_config = {
+    'tex': {
+        'inlineMath': [['$', '$'], ['\\(', '\\)']],
+        'displayMath': [['$$', '$$'], ['\\[', '\\]']]
+    }
+}
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
