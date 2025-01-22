@@ -31,7 +31,7 @@ The chemical model in \textsc{lukenet} follows the standard rate equation approa
 $$
 \frac{dn(i,t)}{dt} = \sum_j k_{ij} n(j,t) + \sum_{jl} k_{ijl} n(j,t) n(l,t)
 $$
-where $$n(i,t)$$ is the abundance (cm $^{-3}$) of species $i$ at time $t$, and $k_{ij}$ and $k_{ijl}$ are the respective destruction and formation rates of a given species.
+where $n(i,t)$ is the abundance (cm $^{-3}$) of species $i$ at time $t$, and $k_{ij}$ and $k_{ijl}$ are the respective destruction and formation rates of a given species.
 
 ### Gas-phase process
 
