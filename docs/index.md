@@ -51,7 +51,7 @@ Photochemical processes, including direct photodissociation and photoionization,
 $$
 k = \alpha \beta G_0 \exp(-\gamma A_\text{V})
 $$
-where $G_0$ is the FUV field strength in Draine units ($\sim 2.7 \times 10^{-3} \; \text{erg s} ^{-3}\text{cm}^{-2}$), $A_\text{V}$ is the visual extinction, and $\alpha$, $\beta$, and $\gamma$ are reaction-specific parameters. The model can optionally account for self-shielding effects in $\small{\text{CO}}$, $\small{\text{N}}_2$ , $\small{\text{H}}_2$, and atomic $\small{\text{C}}$, following the prescriptions of [Visser et al. (2009)](https://ui.adsabs.harvard.edu/abs/2009A%26A...503..323V/abstract),[Visser et al. (2018)](https://ui.adsabs.harvard.edu/abs/2018A%26A...615A..75V/abstract), [Draine & Bertoldi (1996)](https://ui.adsabs.harvard.edu/abs/1996ApJ...468..269D/abstract), and [Kamp & Bertoldi (2000)](https://ui.adsabs.harvard.edu/abs/2000A%26A...353..276K/abstract), repsectively.
+where $\small{G_0}$ is the integrated FUV field strength in Draine units ($\sim 2.7 \times 10^{-3} \; \text{erg s} ^{-3}\text{cm}^{-2}$), $\small{A_\text{V}}$ is the visual extinction, and $\alpha$, $\beta$, and $\gamma$ are reaction-specific parameters. The model can optionally account for self-shielding effects in $\small{\text{CO}}$, $\small{\text{N}}_2$ , $\small{\text{H}}_2$, and atomic $\small{\text{C}}$, following the prescriptions of [Visser et al. (2009)](https://ui.adsabs.harvard.edu/abs/2009A%26A...503..323V/abstract),[Visser et al. (2018)](https://ui.adsabs.harvard.edu/abs/2018A%26A...615A..75V/abstract), [Draine & Bertoldi (1996)](https://ui.adsabs.harvard.edu/abs/1996ApJ...468..269D/abstract), and [Kamp & Bertoldi (2000)](https://ui.adsabs.harvard.edu/abs/2000A%26A...353..276K/abstract), repsectively.
 
 To calculate these self-shielding factors, the code requires the total hydrogen ($\small{H}+{H}_2$) column density between the point of interest and the UV source (denoted $\small{N}_\text{H}$). This can be provided directly by the user, or alternatively, can be approximated using the standard relationship between hydrogen column density and visual extinction eg. [Guver & Ozel (2009)](https://ui.adsabs.harvard.edu/abs/2009MNRAS.400.2050G/abstract):
 
@@ -80,7 +80,7 @@ Code overview goes here
 
 ## Graphical User Interface (GUI)
 
-To enhance accessibility and user workflow, `LukeNet` includes a graphical interface implemented in React that integrates the core solver with interactive visualization capabilities (Figure \ref{fig_gui}). The GUI is included as part of the standard \texttt{pip} installation and can be launched locally, facilitating efficient exploration of chemical models by enabling real-time manipulation of physical parameters and visualization of results.
+To enhance accessibility and user workflow, `LukeNet` includes a graphical interface implemented in React that integrates the core solver with interactive visualization capabilitie. The GUI is included as part of the standard `pip` installation and can be launched locally, facilitating efficient exploration of chemical models by enabling real-time manipulation of physical parameters and visualization of results.
 
 The interface provides dynamic visualization of abundance evolution, reaction rates, and chemical pathways, with comprehensive customization options. Species and reactions can be filtered based on abundance thresholds or selected manually to investigate specific chemical processes. Publication-quality figures can be exported in vector format (SVG), while numerical data can be extracted in standard formats for further analysis.
 
@@ -99,4 +99,4 @@ A key strength of the GUI is its ability to rapidly analyse parameter dependenci
    - Check available memory
 
 ## Support
-Report issues on GitHub or contact support@lukenet.com
+Report issues on GitHub or contact l.keyte@qmul.ac.uk
