@@ -1,5 +1,7 @@
 # LukeNet Documentation
 
+LukeNet is a Python software package that numerically solves time-dependent chemical reaction networks in astrophysical environments. The code is optimized for modeling complex chemical evolution in settings such as the interstellar medium (ISM), molecular clouds, and protoplanetary disks.
+
 ## Installation
 
 LukeNet can be installed using pip:
@@ -51,7 +53,7 @@ k_\text{ph} = \alpha \beta G_0 \exp(-\gamma A_\text{V})
 $$
 where $G_0$ is the FUV field strength in Draine units $\sim 2.7 \times 10^{-3} \; \text{erg s} ^{-3}\text{cm}^{-2}$, integrated between $911-2067 \AA$, $A_\text{V}$ is the visual extinction, and $\alpha$, $\beta$, and $\gamma$ are reaction-specific parameters. The model can optionally account for self-shielding effects in $\small{\text{CO}}$, $\small{\text{N}}_2$ , $\small{\text{H}}_2$, and atomic $\small{\text{C}}$, following the prescriptions of Visser et al. (2009),Visser et al. (2018), Draine & Bertoldi (1996), and Kamp & Bertoldi (2000), repsectively.
 
-To calculate these self-shielding factors, the code requires the total hydrogen ($\small{H}+{H}_2$) column density between the point of interest and the UV source (denoted $\small{N}_\text{H}$). This can be provided directly by the user, or alternatively, can be approximated using the standard relationship between hydrogen column density and visual extinction eg. Guver & Ozel (2009):
+To calculate these self-shielding factors, the code requires the total hydrogen ($\small{H}+{H}_2$) column density between the point of interest and the UV source (denoted $\small{N}_\text{H}$). This can be provided directly by the user, or alternatively, can be approximated using the standard relationship between hydrogen column density and visual extinction eg. [Guver & Ozel (2009)](https://ui.adsabs.harvard.edu/abs/2009MNRAS.400.2050G/abstract):
 
 $$
 N_\text{H} \approx 2.21 \times 10^{21} A_\text{V}
@@ -59,7 +61,7 @@ $$
 The column density of a given species is then inferred from the total hydrogen column using the local fractional abundance:
 
 $$
-N_\text{X} = N_\text{H} \times \frac{X}{n_\text{gas}}
+    N_\text{X} = N_\text{H} \times \frac{X}{n_\text{gas}}
 $$
 where $\small{X}$ denotes local number density of the species of interest.
 
@@ -74,12 +76,36 @@ Grain-surface chemistry incorporates $\small{\text{H}}_2$ formation, hydrogenati
 
 ## Code Overview
 
-Code overview goes here
+### lukenet.process_data()
+Processes input data and returns results.
+
+Parameters:
+- data (array): Input data array
+- method (str): Processing method ['fast', 'accurate']
+
+Returns:
+- dict: Processed results
+
+### lukenet.plot_data()
+Creates visualization of processed data.
+
+Parameters:
+- result (dict): Output from process_data()
+- style (str, optional): Plot style ['line', 'scatter']
+
+Returns:
+- Figure object
 
 ## Graphical User Interface (GUI)
-
-GUI goes here
-
+Settings can be modified in `config.yaml`:
+```yaml
+processing:
+  method: fast
+  threads: 4
+visualization:
+  style: line
+  dpi: 300
+```
 
 ## Troubleshooting
 
