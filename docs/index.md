@@ -100,3 +100,10 @@ A key strength of the GUI is its ability to rapidly analyse parameter dependenci
 
 ## Support
 Report issues on GitHub or contact l.keyte@qmul.ac.uk
+
+
+```{toctree}
+:maxdepth: 2
+:caption: Contents
+
+chemical_model/index
