@@ -33,7 +33,7 @@ $$
 The column density of a given species is then inferred from the total hydrogen column using the local fractional abundance:
 
 $$
-    N_\text{X} = N_\text{H} \times \frac{X}{n_\text{gas}}
+N_\text{X} = N_\text{H} \times \frac{X}{n_\text{gas}}
 $$
 where $\small{X}$ denotes local number density of the species of interest.
 
@@ -42,7 +42,18 @@ The model also includes cosmic-ray and X-ray ionization processes, with both dir
 
 ### Cosmic-rays
 
-Cosmic ray stuff
+Direct cosmic ray ionization is parametrized using the standard form:
+
+$$
+k = \alpha
+$$
+and cosmic ray photoreactions by:
+
+$$
+k = \alpha \frac{T_\text{gas}}{}
+$$
+where in both cases $\alpha$ is taken from the [UMIST database](https://ui.adsabs.harvard.edu/abs/2007A%26A...466.1197W/abstract), which is normalised to a total rate
+for electron production from cosmic ray ionisation (primarily from $\small{\text{H}}_2$ and $\small{\text{He}}$ in dark clouds) of $\small{\zeta_0} = 1.36 \times 10^{-17} \; \text{s}^{-1}$ [(Prasad & Huntress 1980)](https://ui.adsabs.harvard.edu/abs/1980ApJS...43....1P/abstract). 
 
 ## Grain processes
 

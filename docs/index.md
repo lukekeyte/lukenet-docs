@@ -41,23 +41,11 @@ The interface provides dynamic visualization of abundance evolution, reaction ra
 A key strength of the GUI is its ability to rapidly analyse parameter dependencies without the computational overhead of full multi-dimensional models. While codes like `DALI` [(Bruderer et al. 2012)](https://ui.adsabs.harvard.edu/abs/2012A%26A...541A..91B/abstract) provide comprehensive modelling capabilities, analysing the vast output from high-resolution models (often hundreds of gigabytes) can be cumbersome. The `LukeNet` GUI complements such models by allowing users to efficiently explore chemical evolution under varying conditions at specific points of interest. This makes it particularly valuable for investigating reaction mechanisms, understanding parameter sensitivities, and analysing localized chemical processes.
 
 
-## Troubleshooting
-
-### Common Issues
-1. Import errors
-   - Check Python version (3.8+ required)
-   - Verify installation with `pip list`
-
-2. Processing errors
-   - Ensure data format matches requirements
-   - Check available memory
-
-## Support
-Report issues on GitHub or contact l.keyte@qmul.ac.uk
-
 
 ```{toctree}
 :maxdepth: 2
 :caption: Contents
 
 chemical_model/index
+code_overview
+gui
