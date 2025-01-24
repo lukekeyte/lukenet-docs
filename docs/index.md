@@ -12,7 +12,7 @@ pip install lukenet
 
 ## Support
 
-If you are having any issues, please email [l.keyte@qmul.ac.uk](l.keyte@qmul.ac.uk)
+If you are having any issues, please email [l.keyte@qmul.ac.uk](mailto:l.keyte@qmul.ac.uk)
 
 ## Citation
 
@@ -29,7 +29,7 @@ If you use LukeNet as part of your research, please cite the MNRAS article:
     number = {[ISSUE NUMBER]},
     pages = {[PAGE NUMBERS]},
     author = {L. Keyte},
-    title = {LukeNet: A Python-based single-point chemical solver and analysis tool},
+    title = {LukeNet: A Python-based single-point chemical solver with analysis tool},
     journal = {Monthly Notices of the Royal Astronomical Society}
 }
 ```
