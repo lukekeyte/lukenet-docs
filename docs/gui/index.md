@@ -1,11 +1,8 @@
 # Graphical User Interface (GUI)
 
-```
-{figure} /_static/fig_lukenet_gui.png
-:name: gui-figure
-:alt: LukeNet graphical user interface
-:align: center
-```
+![LukeNet graphical user interface](/_static/fig_lukenet_gui.png)
+
+
 
 LukeNet graphical user interface
 
