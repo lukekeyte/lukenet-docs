@@ -1,7 +1,7 @@
 # Graphical User Interface (GUI)
 
 <figure>
-    ![LukeNet grapical user interface](images/fig_lukenet_gui.png)
+    ![LukeNet grapical user interface](_static/fig_lukenet_gui.png)
     <figcaption>Figure 1: LukeNet grapical user interface.</figcaption>
 </figure>
 
