@@ -1,9 +1,12 @@
 # Graphical User Interface (GUI)
 
-<figure>
-    ![LukeNet grapical user interface](_static/fig_lukenet_gui.png)
-    <figcaption>Figure 1: LukeNet grapical user interface.</figcaption>
-</figure>
+```{figure} ./_static/fig_lukenet_gui.png
+:name: gui-figure
+:alt: LukeNet graphical user interface
+:align: center
+```
+
+LukeNet graphical user interface
 
 To enhance accessibility and user workflow, `LukeNet` includes a graphical interface implemented in React that integrates the core solver with interactive visualization capabilitie. The GUI is included as part of the standard `pip` installation and can be launched locally, facilitating efficient exploration of chemical models by enabling real-time manipulation of physical parameters and visualization of results.
 
