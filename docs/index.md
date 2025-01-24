@@ -12,7 +12,7 @@ pip install lukenet
 
 ## Support
 
-If you are having any issues, please email l.keyte@qmul.ac.uk
+If you are having any issues, please email [l.keyte@qmul.ac.uk](l.keyte@qmul.ac.uk)
 
 ## Citation
 
