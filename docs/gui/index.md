@@ -2,10 +2,6 @@
 
 ![LukeNet graphical user interface](/_static/fig_lukenet_gui.png)
 
-
-
-LukeNet graphical user interface
-
 To enhance accessibility and user workflow, `LukeNet` includes a graphical interface implemented in React that integrates the core solver with interactive visualization capabilitie. The GUI is included as part of the standard `pip` installation and can be launched locally, facilitating efficient exploration of chemical models by enabling real-time manipulation of physical parameters and visualization of results.
 
 The interface provides dynamic visualization of abundance evolution, reaction rates, and chemical pathways, with comprehensive customization options. Species and reactions can be filtered based on abundance thresholds or selected manually to investigate specific chemical processes. Publication-quality figures can be exported in vector format (SVG), while numerical data can be extracted in standard formats for further analysis.
