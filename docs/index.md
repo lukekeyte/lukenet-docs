@@ -47,5 +47,5 @@ A key strength of the GUI is its ability to rapidly analyse parameter dependenci
 :caption: Contents
 
 chemical_model/index
-code_overview
-gui
+code_overview/index
+gui/index
