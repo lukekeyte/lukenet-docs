@@ -1,4 +1,4 @@
-# Input
+# Input File
 
 ``LukeNet`` reads its configuration from a simple text-based input file (`.dat`) that defines the physical conditions, environmental parameters, and runtime settings for the simulation.
 
