@@ -29,7 +29,7 @@ where the individual parameters are defined as follows:
 
 | Parameter| Description | 
 |:-----|:------|
-| `n_gas`          | Gas number density (cm^3)   | 
+| `n_gas`          | Gas number density ($$cm^3$$)   | 
 | `n_dust`         | Dust number density (cm^-3)     | 
 | `t_gas`          | Gas temperature (K)   | 
 | `t_dust`         | Dust temperature (K)   | 
