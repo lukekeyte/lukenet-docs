@@ -1,8 +1,9 @@
 # Input
 
-The main parameters for `LukeNet` are read in from a simple input file which specifies the physical conditions, environmental parameters, and runtime settings.
+``LukeNet`` reads its configuration from a simple text-based input file (`.dat`) that defines the physical conditions, environmental parameters, and runtime settings for the simulation.
 
-The input file is a simple `.dat` file with the following form:
+## Example Input
+Here's a representative input file with typical values:
 
 ```
 # LukeNet Input File
@@ -24,29 +25,34 @@ t_chem         = 1e6
 network        = 'network/data_chemnet4.dat'
 ```
 
-where the individual parameters are defined as follows:
+## Parameter Definitions
+
+| Parameter | Description | Units |
+|:----------|:------------|:------|
+| `n_gas` | Number density of gas | cm³ |
+| `n_dust` | Number density of dust grains | cm³ |
+| `t_gas` | Gas temperature | K |
+| `t_dust` | Dust grain temperature | K |
+| `gtd` | Gas-to-dust number density ratio | dimensionless |
+| `Av` | Visual extinction | mag |
+| `G_0` | Local FUV field strength in Draine units | ~2.7 x 10⁻³ erg s⁻¹ cm⁻² |
+| `Zeta_X` | X-ray ionization rate | s⁻¹ |
+| `h2_col` | H₂ column density | cm⁻² |
+| `self_shielding` | Enable self-shielding calculations for H₂, N₂, CO, and C | boolean |
+| `column` | Use user-specified H₂ column density (`True`) or calculate from Av (`False`) | boolean |
+| `Zeta_CR` | Cosmic ray ionization rate | s⁻¹ |
+| `pah_ism` | PAH abundance relative to ISM value | dimensionless |
+| `t_chem` | Chemical evolution time | years |
+| `network` | Path to chemical network definition file | string |
 
 
-| Parameter| Description | 
-|:-----|:------|
-| `n_gas`          | Gas number density ($\small\text{cm}^3$)   | 
-| `n_dust`         | Dust number density ($\small\text{cm}^3$)     | 
-| `t_gas`          | Gas temperature (K)   | 
-| `t_dust`         | Dust temperature (K)   | 
-| `gtd`            | Gas-to-dust ratio   | 
-| `Av`             | Visual extinction (mag) | 
-| `G_0`            | Local FUV field strength in Draine units ($\small {\sim2.7 \times 10^{-3} \; \text{erg s}^{-1} \;\text{cm}^{-2}}$) | 
-| `Zeta_X`         | X-ray ionization rate ($\text{s}^{-1}$) | 
-| `h2_col`         | H2 column density ($\small\text{cm}^{-2}$)   | 
-| `self_shielding` | Enable self-shielding of $\small \text{H}_2$, $\small \text{N}_2$, $\small \text{CO}$, $\small \text{C}$ (True/False) | 
-| `column`         | User-specified $\small \text{H}_2$ column for self-shielding (True/False; calculated from Av if False)| 
-| `Zeta_CR`        | Cosmic ray ionization rate ($\text{s}^{-1}$) | 
-| `pah_ism`        | PAH abundance relative to ISM | 
-| `t_chem`         | Chemical evolution time (years) | 
-| `network`        | Full path to chemical network file | 
+## Creating an Input File
+You can generate a template input file using the built-in helper function:
+```python
+import lukenet
 
+# Generate default input file
+lukenet.create_input("path/to/save/input_file.dat")
 
-
-
-
-
+# Modify the generated file with your specific parameters
+```
