@@ -29,18 +29,18 @@ where the individual parameters are defined as follows:
 
 | Parameter| Description | 
 |:-----|:------|
-| `n_gas`          | Gas number density ($$cm^3$$)   | 
-| `n_dust`         | Dust number density (cm^-3)     | 
+| `n_gas`          | Gas number density ($\small\text{cm}^3$)   | 
+| `n_dust`         | Dust number density ($\small\text{cm}^3$)     | 
 | `t_gas`          | Gas temperature (K)   | 
 | `t_dust`         | Dust temperature (K)   | 
 | `gtd`            | Gas-to-dust ratio   | 
 | `Av`             | Visual extinction (mag) | 
-| `G_0`            | Local FUV field strength normalised to Draine field (~2.7e-3 erg/s/cm^2 between 911-2067A) | 
-| `Zeta_X`         | X-ray ionization rate (s^-1) | 
-| `h2_col`         | H2 column density (cm^-2)   | 
-| `self_shielding` | Enable self-shielding of H2, N2, CO, C (True/False) | 
-| `column`         | User-specified H2 column for self-shielding (otherwise approximate based on Av) | 
-| `Zeta_CR`        | Cosmic ray ionization rate (s^-1) | 
+| `G_0`            | Local FUV field strength in Draine units ($\small {\sim2.7 \times 10^{-3} \; \text{erg s}^{-1} \;\text{cm}^{-2}}$) | 
+| `Zeta_X`         | X-ray ionization rate ($\text{s}^{-1}$) | 
+| `h2_col`         | H2 column density ($\small\text{cm}^{-2}$)   | 
+| `self_shielding` | Enable self-shielding of $\small \text{H}_2$, $\small \text{N}_2$, $\small \text{CO}$, $\small \text{C}$ (True/False) | 
+| `column`         | User-specified $\small \text{H}_2$ column for self-shielding (True/False; calculated from Av if False)| 
+| `Zeta_CR`        | Cosmic ray ionization rate ($\text{s}^{-1}$) | 
 | `pah_ism`        | PAH abundance relative to ISM | 
 | `t_chem`         | Chemical evolution time (years) | 
 | `network`        | Full path to chemical network file | 
