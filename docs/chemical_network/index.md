@@ -65,7 +65,7 @@ Each species entry contains:
 
 <br>
 
-> **⚠️ Important Notes:**  
+> **⚠️ Important notes:**  
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• PAHs are treated as a separate element in the species list ('Pa')  
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• The PAH abundance should be set to the ISM value ~ 6.000e-7  
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• The desired PAH abundance is then set using the ``pah_ism`` parameter in the Input File  
@@ -151,8 +151,10 @@ The network includes several categories of reactions, indicated by the type code
 - **90**: H₂ excitation
 - **91**: H₂* de-excitation
 - **92**: H₂* reactions
-<br><br>
-> **⚠️ Important Notes:**  
+
+<br>
+
+> **⚠️ Important note:**  
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Self-shielding of CO isotopologues is not currently implemented  
 
 <br>
