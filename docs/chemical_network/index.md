@@ -1,15 +1,26 @@
 # Chemical Network
 
-The chemical network file specifies the complete set of chemical species, reactions, and rate coefficients that drive the chemical evolution in `LukeNet`. By design, `LukeNet` is configured to read chemical networks with identical format to that of the widely-used `DALI` astrochemistry code, enabling direct comparison with published results and facilitating network sharing within the community.
+The chemical network file specifies the complete set of chemical species, reactions, and rate coefficients that drive the chemical evolution in `LukeNet`. By design, `LukeNet` is configured to read chemical networks with identical format to that of the widely-used `DALI` astrochemistry code, enabling direct comparison with published results and facilitating ease-of-use.
+
+## Default Network
+
+A standard chemical network is included with the installation (originally presented in [Keyte et al. 2023](https://ui.adsabs.harvard.edu/abs/2023NatAs...7..684K/abstract)). You can create a copy of this network using the helper function:
+
+```python
+import lukenet
+lukenet.create_network("path/to/save/chemnet.dat")
+```
+The copied network file can then be modified to include additional reactions, adjusted for specific chemical conditions, or used as a template for creating new networks.
 
 The file follows a structured format with three main sections:
 1. A list of elements that form the basic building blocks
 2. A comprehensive list of atomic and molecular species, including their properties
 3. A detailed list of chemical reactions and their rate coefficients
 
-It is crucial that the correct formatting is maintained, as even minor deviations can cause parsing errors. The structure of a typical network file is shown below.
+Correct formatting must be maintained throughout the file, as parsing errors can occur even with minor deviations. The expected structure is detailed in the sections below.
 
-##  Chemical Network File Format
+
+##  Network File Format
 
 ### Elements Section
 ```
@@ -58,8 +69,8 @@ Each species entry contains:
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• PAHs are treated as a separate element in the species list ('Pa')  
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• The PAH abundance should be set to the ISM value ~ 6.000e-7  
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• The desired PAH abundance is then set using the ``pah_ism`` parameter in the Input File  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Ice-phase species are preceded with 'J' (eg. ice phase 'CO' is denoted 'JCO')  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Vibrationally excited H₂ is denoted H2*
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Ice-phase species are preceded with 'J' (eg. ice-phase 'CO' is denoted 'JCO')  
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Vibrationally excited H₂ is denoted 'H2*'
 
 <br>
 
@@ -136,7 +147,7 @@ The network includes several categories of reactions, indicated by the type code
 - **80**: Thermal desorption
 - **81**: Freeze-out
 
-### H2* Chemistry (90-92)
+### H₂* Chemistry (90-92)
 - **90**: H₂ excitation
 - **91**: H₂* de-excitation
 - **92**: H₂* reactions
