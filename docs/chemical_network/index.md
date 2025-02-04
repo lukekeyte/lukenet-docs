@@ -91,7 +91,7 @@ Each reaction entry contains:
 | c | Rate coefficient $\gamma$  |
 | temp_min | Minimum valid temperature (K) |
 | temp_max | Maximum valid temperature (K) |
-| pd-data | Photodissociation data **(not currently used)**|
+| pd-data | Photodissociation data **<span style="color:darkred">(not currently used)</span>**|
 
 <br>
 
