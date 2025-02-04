@@ -5,7 +5,10 @@ release = '1.0'
 
 extensions = [
     'myst_parser',
-    'sphinx.ext.mathjax'
+    'sphinx.ext.mathjax',
+    "sphinx.ext.autodoc", 
+    "sphinx.ext.napoleon", 
+    "sphinx.ext.viewcode"
 ]
 
 myst_enable_extensions = [
