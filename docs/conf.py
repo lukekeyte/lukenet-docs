@@ -20,7 +20,14 @@ templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 html_theme = 'sphinx_rtd_theme'
+
+html_theme_options = {
+    'navigation_depth': 1,  # Only show top level
+    'collapse_navigation': False,  # Optional: controls if navigation entries should be collapsed
+}
+
+
 html_static_path = ['_static']
 
 # Enable numbering for headers
-myst_heading_anchors = 2
+myst_heading_anchors = 3
