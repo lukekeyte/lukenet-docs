@@ -55,18 +55,18 @@ Each species entry contains:
 <br>
 
 > **⚠️ Important Notes:**  
-> • PAHs are treated as a separate element in the species list ('Pa')  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• The PAH abundance should be set to the ISM value ~ 6.000e-7  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• The desired PAH abundance is then set using the ``pah_ism`` parameter in the Input File  
-> • Ice-phase species are preceded with 'J' (eg. ice phase 'CO' is denoted 'JCO')  
-> • Vibrationally excited H₂ is denoted H2*
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• PAHs are treated as a separate element in the species list ('Pa')  
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• The PAH abundance should be set to the ISM value ~ 6.000e-7  
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• The desired PAH abundance is then set using the ``pah_ism`` parameter in the Input File  
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Ice-phase species are preceded with 'J' (eg. ice phase 'CO' is denoted 'JCO')  
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Vibrationally excited H₂ is denoted H2*
 
 <br>
 
 ### Reactions Section
 ```
 ! n_reactions
-1463
+1875
 !
 !e1           e2            e3            p1            p2            p3            p4            p5               nr  type  a            b            c            temp_min     temp_max   pd-data
 H             CH                          C             H2                                                          16  20   1.310e-10    0.000e+00    8.000e+01    0.000e+00    2.000e+03  ---------
@@ -114,12 +114,18 @@ The network includes several categories of reactions, indicated by the type code
 - **31**: H₂ photodissociation with self-shielding
 - **32**: CO photodissociation with self-shielding
 - **33**: C photoionization with self-shielding
+- **38**: N₂ photodissociation with self-shielding
 
 ### Cosmic Ray Chemistry (40-43)
 - **40**: Direct cosmic ray ionization
 - **41**: Cosmic ray induced FUV reactions
 - **42**: Cosmic ray induced CO dissociation
 - **43**: Cosmic ray induced He decay
+
+### X-Ray Chemistry (60-62)
+- **60**: X-ray secondary ionization of H
+- **61**: X-ray secondary ionization of H₂
+- **62**: X-ray secondary ionization of other molecules
 
 ### PAH Chemistry (70-72)
 - **70**: PAH photoelectron production
@@ -136,15 +142,13 @@ The network includes several categories of reactions, indicated by the type code
 - **92**: H₂* reactions
 <br><br>
 > **⚠️ Important Notes:**  
-> • Self-shielding of CO isotopologues is not currently implemented  
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Self-shielding of CO isotopologues is not currently implemented  
 
 <br>
 
 ## Alternative Network Formats
 
 `LukeNet` is currently configured to only read `DALI`-format network files. However, support for alternative formats can be added by modifying the code:
-
-### Steps to Add Custom Format Support
 
 1. Create a Python function that reads your network file and returns the following arrays:
 
