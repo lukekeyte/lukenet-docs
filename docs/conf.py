@@ -22,7 +22,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 html_theme = 'sphinx_rtd_theme'
 
 html_theme_options = {
-    'navigation_depth': 1,  # Only show top level
+    'navigation_depth': 2,  # Only show top level
     'collapse_navigation': False,  # Optional: controls if navigation entries should be collapsed
 }
 
