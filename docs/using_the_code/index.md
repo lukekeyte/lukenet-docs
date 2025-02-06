@@ -26,4 +26,4 @@ The code also includes comprehensive analysis and visualization capabilities thr
 :maxdepth: 2
 :caption: Contents
 
-input_file/index
+input_files/index
