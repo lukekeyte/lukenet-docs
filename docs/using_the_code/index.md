@@ -22,11 +22,11 @@ Self-shielding calculations are handled by a dedicated module that pre-loads tab
 
 The code also includes comprehensive analysis and visualization capabilities through a dedicated analysis module and graphical user interface. This provides plotting functions for species abundances and reaction rates over time, as well as tools for investigating chemical pathways and network properties. Data can also be exported in standard formats for further analysis.
 
-# Input File
+## Input File
 
 ``LukeNet`` reads its configuration from a simple text-based input file (`.dat`) that defines the physical conditions, environmental parameters, and runtime settings for the simulation.
 
-## Example Input
+### Example Input
 Here's a representative input file with typical values:
 
 ```
@@ -49,7 +49,7 @@ t_chem         = 1e6
 network        = 'network/data_chemnet4.dat'
 ```
 
-## Parameter Definitions
+### Parameter Definitions
 
 | Parameter | Description | Units |
 |:----------|:------------|:------|
@@ -70,7 +70,7 @@ network        = 'network/data_chemnet4.dat'
 | `network` | Path to chemical network definition file | string |
 
 
-## Creating an Input File
+### Creating an Input File
 You can generate a template input file using the built-in helper function:
 ```python
 import lukenet
