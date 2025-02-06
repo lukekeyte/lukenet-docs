@@ -21,9 +21,3 @@ The core solver is implemented in the ```LukeNet``` class, which manages the che
 Self-shielding calculations are handled by a dedicated module that pre-loads tabulated shielding factors during initialization. For $\small{\text{CO}}$ and $\small{\text{N}}_2$, this module implements interpolation routines that operate on the tabulated data, while $\small{\text{H}}_2$ and $\small{\text{C}}$ self-shielding are computed using their analytical approximations. 
 
 The code also includes comprehensive analysis and visualization capabilities through a dedicated analysis module and graphical user interface. This provides plotting functions for species abundances and reaction rates over time, as well as tools for investigating chemical pathways and network properties. Data can also be exported in standard formats for further analysis.
-
-```{toctree}
-:maxdepth: 3
-:caption: Contents
-
-input_files

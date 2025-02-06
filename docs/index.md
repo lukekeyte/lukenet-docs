@@ -41,7 +41,6 @@ If you use LukeNet as part of your research, please cite the MNRAS article:
 quick_start/index
 chemical_model/index
 using_the_code/index
-using_the_code/input_files
 input_file/index
 chemical_network/index
 gui/index
