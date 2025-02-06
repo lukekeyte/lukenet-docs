@@ -22,6 +22,8 @@ Self-shielding calculations are handled by a dedicated module that pre-loads tab
 
 The code also includes comprehensive analysis and visualization capabilities through a dedicated analysis module and graphical user interface. This provides plotting functions for species abundances and reaction rates over time, as well as tools for investigating chemical pathways and network properties. Data can also be exported in standard formats for further analysis.
 
+<br/>
+
 ## Input File
 
 ``LukeNet`` reads its configuration from a simple text-based input file (`.dat`) that defines the physical conditions, environmental parameters, and runtime settings for the simulation.
@@ -81,7 +83,7 @@ lukenet.create_input("path/to/save/input_file.dat")
 # Modify the generated file with your specific parameters
 ```
 
-
+<br/>
 
 ## Chemical Network
 
@@ -95,7 +97,7 @@ A standard chemical network is included with the installation (originally presen
 import lukenet
 lukenet.create_network("path/to/save/chemnet.dat")
 ```
-The copied network file can then be modified to include additional reactions, adjusted for specific chemical conditions, or used as a template for creating new networks.
+The copied network file can then be modified to include additional reactions, adjusted for specific chemical conditions, or used as a template for creating a new network.
 
 The file follows a structured format with three main sections:
 1. A list of elements that form the basic building blocks
@@ -269,3 +271,16 @@ The network includes several categories of reactions, indicated by the type code
     - Uses the same reaction type IDs as described in this documentation
     - Maintains consistent array shapes and data types
     - Includes all required fields for species and reactions
+
+
+<br>
+
+## Running the Code
+
+Running the Code goes here.
+
+<br>
+
+## Analysis Tools
+
+Analysis Tools goes here.
