@@ -22,4 +22,8 @@ Self-shielding calculations are handled by a dedicated module that pre-loads tab
 
 The code also includes comprehensive analysis and visualization capabilities through a dedicated analysis module and graphical user interface. This provides plotting functions for species abundances and reaction rates over time, as well as tools for investigating chemical pathways and network properties. Data can also be exported in standard formats for further analysis.
 
-test/index
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   test/index
