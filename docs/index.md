@@ -42,3 +42,4 @@ quick_start/index
 chemical_model/index
 using_the_code/index
 gui/index
+lukenet_module_reference/index

@@ -22,7 +22,7 @@ Self-shielding calculations are handled by a dedicated module that pre-loads tab
 
 The code also includes comprehensive analysis and visualization capabilities through a dedicated analysis module and graphical user interface. This provides plotting functions for species abundances and reaction rates over time, as well as tools for investigating chemical pathways and network properties. Data can also be exported in standard formats for further analysis.
 
-<br/>
+<br/><br>
 
 ## Input File
 
@@ -83,7 +83,7 @@ lukenet.create_input("path/to/save/input_file.dat")
 # Modify the generated file with your specific parameters
 ```
 
-<br/>
+<br/><br>
 
 ## Chemical Network
 
@@ -273,13 +273,13 @@ The network includes several categories of reactions, indicated by the type code
     - Includes all required fields for species and reactions
 
 
-<br>
+<br><br>
 
 ## Running the Code
 
 Running the Code goes here.
 
-<br>
+<br><br>
 
 ## Analysis Tools
 
