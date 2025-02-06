@@ -1,5 +1,5 @@
 # Using the Code
 
-## Input File
+## Input Files
 
 Details about the input file
