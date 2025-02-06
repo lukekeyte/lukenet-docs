@@ -35,12 +35,12 @@ If you use LukeNet as part of your research, please cite the MNRAS article:
 ```
 
 ```{toctree}
-:maxdepth: 2
+:maxdepth: 3
 :caption: Contents
 
 quick_start/index
 chemical_model/index
-code_overview/index
+using_the_code/index
 input_file/index
 chemical_network/index
 gui/index
