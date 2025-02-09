@@ -4,7 +4,9 @@
 
 The core module implements the main chemical network solver functionality for LukeNet.
 
-### class Lukenet()
+
+
+### <span style="background-color: #E9F2F9">*class* Lukenet</span>
 
 Base class containing all functionality for solving astrochemical networks. LukeNet is designed to model and simulate complex chemical processes in various cosmic settings such as the ISM, molecular clouds, and protoplanetary disks.
 
@@ -29,7 +31,7 @@ Base class containing all functionality for solving astrochemical networks. Luke
 
 #### Methods
 
-#### init_lukenet(input_file)
+#### <span style="background-color:rgba(215, 217, 219, 0.33)">init_lukenet(*input_file*)</span>
 
 Initialize the LukeNet chemical network solver with parameters from an input file.
 
