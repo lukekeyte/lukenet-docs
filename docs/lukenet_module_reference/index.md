@@ -286,11 +286,146 @@ Contains simulation parameters and physical constants.
 
 ## selfshielding.py
 
+## selfshielding.py
+
+The selfshielding module handles the calculation of molecular and atomic self-shielding effects in astrophysical environments. It provides essential functionality for computing accurate photodissociation rates in regions where molecules can shield themselves from radiation.
+
+### <span style="background-color: #E9F2F9">*Functions Overview*</span>
+
+The module implements both tabulated and analytical self-shielding calculations for various species important in astrochemical networks, particularly H2, CO, N2, and atomic carbon.
+
+#### Key Features
+- Reading and interpolation of pre-computed CO shielding tables (Visser et al. 2009)
+- Reading and interpolation of pre-computed N2 shielding tables (Visser et al. 2018)
+- Analytical calculation of H2 self-shielding (Draine & Bertoldi 1996)
+- Analytical calculation of atomic carbon self-shielding (Kamp & Bertoldi 2000)
+- Support for temperature-dependent shielding effects
+- Flexible column density handling with input or Av-based calculations
+
+#### Helper Functions
+
+#### <span style="background-color:rgba(215, 217, 219, 0.33)">locate(*x*, *arr*)</span>
+
+Finds interpolation indices and weights for a value within a sorted array.
+
+**Parameters:**
+- `x` (*float*): Value to locate
+- `arr` (*array-like*): Sorted array to search within
+
+**Returns:**
+- `tuple`: Contains:
+  - `index` (*int*): Lower bound index
+  - `alpha` (*float*): Interpolation factor (0-1)
+
+#### Data Reading Functions
+
+#### <span style="background-color:rgba(215, 217, 219, 0.33)">read_selfshielding_co(*file*)</span>
+
+Reads CO self-shielding data from pre-computed tables.
+
+**Parameters:**
+- `file` (*str*): Path to CO self-shielding data file
+
+**Returns:**
+- `tuple`: Contains:
+  - `chem_coss_NCO` (*numpy.ndarray*): Log10 CO column density grid
+  - `chem_coss_NH2` (*numpy.ndarray*): Log10 H2 column density grid
+  - `chem_coss` (*numpy.ndarray*): Log10 self-shielding factors (2D array)
+
+**Data Format:**
+- Expects 47 CO column density points
+- Expects 42 H2 column density points
+- Based on Visser et al. (2009) calculations
+
+#### <span style="background-color:rgba(215, 217, 219, 0.33)">read_selfshielding_n2(*file*)</span>
+
+Reads N2 self-shielding data from pre-computed tables.
+
+**Parameters:**
+- `file` (*str*): Path to N2 self-shielding data file
+
+**Returns:**
+- `tuple`: Contains:
+  - `chem_n2ss_NN2` (*numpy.ndarray*): Log10 N2 column density grid
+  - `chem_n2ss_NH2` (*numpy.ndarray*): Log10 H2 column density grid
+  - `chem_n2ss_NH` (*numpy.ndarray*): Log10 H column density grid
+  - `chem_n2ss` (*numpy.ndarray*): Log10 self-shielding factors (3D array)
+
+**Data Format:**
+- Expects 46 N2 column density points
+- Expects 46 H2 column density points
+- Expects 10 H column density points
+- Based on Visser et al. (2018) calculations
+
+#### Shielding Calculation Functions
+
+#### <span style="background-color:rgba(215, 217, 219, 0.33)">calc_selfshielding_co(*chem_coss_NCO*, *chem_coss_NH2*, *chem_coss*, *col_h2*, *col_co*)</span>
+
+Calculates CO self-shielding factor using bilinear interpolation.
+
+**Parameters:**
+- `chem_coss_NCO` (*numpy.ndarray*): Log10 CO column density grid
+- `chem_coss_NH2` (*numpy.ndarray*): Log10 H2 column density grid
+- `chem_coss` (*numpy.ndarray*): Log10 self-shielding factors
+- `col_h2` (*float*): Current H2 column density [cm^-2]
+- `col_co` (*float*): Current CO column density [cm^-2]
+
+**Returns:**
+- `float`: CO self-shielding factor (linear scale)
+
+#### <span style="background-color:rgba(215, 217, 219, 0.33)">calc_selfshielding_n2(*chem_n2ss_NN2*, *chem_n2ss_NH2*, *chem_n2ss_NH*, *chem_n2ss*, *col_h2*, *col_h*, *col_n2*)</span>
+
+Calculates N2 self-shielding factor using trilinear interpolation.
+
+**Parameters:**
+- `chem_n2ss_NN2` (*numpy.ndarray*): Log10 N2 column density grid
+- `chem_n2ss_NH2` (*numpy.ndarray*): Log10 H2 column density grid
+- `chem_n2ss_NH` (*numpy.ndarray*): Log10 H column density grid
+- `chem_n2ss` (*numpy.ndarray*): Log10 self-shielding factors
+- `col_h2` (*float*): Current H2 column density [cm^-2]
+- `col_h` (*float*): Current H column density [cm^-2]
+- `col_n2` (*float*): Current N2 column density [cm^-2]
+
+**Returns:**
+- `float`: N2 self-shielding factor (linear scale)
+
+#### <span style="background-color:rgba(215, 217, 219, 0.33)">calc_selfshielding_h2(*col_h2*, *delta_v*)</span>
+
+Calculates H2 self-shielding factor using the Draine & Bertoldi (1996) approximation.
+
+**Parameters:**
+- `col_h2` (*float*): H2 column density [cm^-2]
+- `delta_v` (*float*): Velocity dispersion [km/s]
+
+**Returns:**
+- `float`: H2 self-shielding factor
+
+**Implementation Notes:**
+- Uses fixed delta_v = 0.2 km/s
+- Includes both low and high column density limiting behavior
+- Accounts for line overlap effects
+
+#### <span style="background-color:rgba(215, 217, 219, 0.33)">calc_selfshielding_c(*col_h2*, *col_c*, *t_gas*)</span>
+
+Calculates atomic carbon self-shielding factor using the Kamp & Bertoldi (2000) approximation.
+
+**Parameters:**
+- `col_h2` (*float*): H2 column density [cm^-2]
+- `col_c` (*float*): C column density [cm^-2]
+- `t_gas` (*float*): Gas temperature [K]
+
+**Returns:**
+- `float`: C self-shielding factor
+
+**Implementation Notes:**
+- Includes both C self-shielding and H2 cross-shielding
+- Temperature-dependent H2 shielding component
+- Enforces minimum H2 shielding factor of 0.5
 
 
 
 
-
+<br/>
 <br/>
 
 ***
@@ -302,6 +437,7 @@ Contains simulation parameters and physical constants.
 
 
 
+<br/>
 <br/>
 
 ***
