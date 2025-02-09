@@ -102,8 +102,15 @@ If the solver fails, returns a dictionary with:
 - `message`: Error message describing the failure
 - `last_time`: Last successful integration time (if any)
 
+
+
+<br/>
+
 ## calculus.py
 
+
+
+<br/>
 
 ## dataclasses.py
 
@@ -236,27 +243,18 @@ Manages physical environmental conditions for the simulation.
 Contains simulation parameters and physical constants.
 
 #### Attributes:
-##### Network Parameters:
 - `n_elements` (int): Number of chemical elements
 - `n_species` (int): Number of chemical species
 - `n_reactions` (int): Number of reactions
-
-##### Time Parameters:
 - `time_initial` (float): Initial time (seconds)
 - `time_final` (float): Final time (seconds)
-
-##### Physical Parameters:
 - `delta_v` (float): Velocity dispersion (km/s)
 - `av_nH` (float): Column to extinction conversion
 - `self_shielding` (bool): Self-shielding flag
 - `column` (bool): Column-based shielding flag
-
-##### Physical Constants:
 - `k_B` (float): Boltzmann constant (erg/K)
 - `yr_sec` (float): Seconds per year
 - `m_p` (float): Proton mass (g)
-
-#### Methods:
 - `validate()`: Validates parameter values
 - `info()`: Displays parameter information
 
@@ -268,8 +266,19 @@ Contains simulation parameters and physical constants.
 
 
 
+
+<br/>
+
 ## selfshielding.py
 
+
+
+<br/>
+
 ## analysis.py
+
+
+
+<br/>
 
 ## helpers.py
