@@ -286,13 +286,7 @@ Contains simulation parameters and physical constants.
 
 ## selfshielding.py
 
-## selfshielding.py
-
-The selfshielding module handles the calculation of molecular and atomic self-shielding effects in astrophysical environments. It provides essential functionality for computing accurate photodissociation rates in regions where molecules can shield themselves from radiation.
-
-### <span style="background-color: #E9F2F9">*Functions Overview*</span>
-
-The module implements both tabulated and analytical self-shielding calculations for various species important in astrochemical networks, particularly H2, CO, N2, and atomic carbon.
+The selfshielding module handles the calculation of self-shielding factors for H2, CO, N2, and atomic C.
 
 #### Key Features
 - Reading and interpolation of pre-computed CO shielding tables (Visser et al. 2009)
@@ -302,7 +296,6 @@ The module implements both tabulated and analytical self-shielding calculations 
 - Support for temperature-dependent shielding effects
 - Flexible column density handling with input or Av-based calculations
 
-#### Helper Functions
 
 #### <span style="background-color:rgba(215, 217, 219, 0.33)">locate(*x*, *arr*)</span>
 
@@ -317,7 +310,6 @@ Finds interpolation indices and weights for a value within a sorted array.
   - `index` (*int*): Lower bound index
   - `alpha` (*float*): Interpolation factor (0-1)
 
-#### Data Reading Functions
 
 #### <span style="background-color:rgba(215, 217, 219, 0.33)">read_selfshielding_co(*file*)</span>
 
@@ -356,8 +348,6 @@ Reads N2 self-shielding data from pre-computed tables.
 - Expects 46 H2 column density points
 - Expects 10 H column density points
 - Based on Visser et al. (2018) calculations
-
-#### Shielding Calculation Functions
 
 #### <span style="background-color:rgba(215, 217, 219, 0.33)">calc_selfshielding_co(*chem_coss_NCO*, *chem_coss_NH2*, *chem_coss*, *col_h2*, *col_co*)</span>
 
