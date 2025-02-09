@@ -104,11 +104,17 @@ If the solver fails, returns a dictionary with:
 
 
 
+
+
+
 <br/>
 
 ***
 
 ## calculus.py
+
+
+
 
 
 
@@ -271,11 +277,17 @@ Contains simulation parameters and physical constants.
 
 
 
+
+
+
 <br/>
 
 ***
 
 ## selfshielding.py
+
+
+
 
 
 
@@ -287,8 +299,123 @@ Contains simulation parameters and physical constants.
 
 
 
+
+
+
 <br/>
 
 ***
 
+
 ## helpers.py
+
+The helpers module provides essential utility functions for the LukeNet chemical network solver. It handles file I/O operations, data parsing, and formatting tasks that support the core solver functionality. The module consists of standalone functions that handle various auxiliary tasks required by the main LukeNet solver.
+
+#### Key Features
+- Reading and parsing of input configuration files
+- Processing of chemical network files with complex formatting requirements
+- Generation of human-readable reaction labels for output
+- Comprehensive logging functionality
+- DALI model cell parameter extraction and display
+
+### Functions
+
+#### <span style="background-color:rgba(215, 217, 219, 0.33)">read_input_file(*file_path*)</span>
+
+Reads a configuration file containing key-value pairs and converts them to appropriate Python data types.
+
+**Parameters:**
+- `file_path` (*str*): Path to the input configuration file
+
+**Returns:**
+- `dict`: Dictionary containing parsed parameters with properly typed values
+
+The function handles various data types including:
+- Boolean values ('true'/'false')
+- Integer numbers
+- Floating point numbers
+- String values (with quote stripping)
+
+#### <span style="background-color:rgba(215, 217, 219, 0.33)">read_chemnet(*network_file*)</span>
+
+Parses a chemical network file containing species information and reaction data.
+
+**Parameters:**
+- `network_file` (*str*): Path to the chemical network file
+
+**Returns:**
+A tuple containing:
+- `n_elements` (*int*): Number of elements
+- `elements_name` (*list*): Element names
+- `n_species` (*int*): Number of species
+- `species_name` (*list*): Species names
+- `species_abu` (*numpy.ndarray*): Initial abundances
+- `species_mass` (*numpy.ndarray*): Species masses
+- `species_charge` (*numpy.ndarray*): Species charges
+- `n_reactions` (*int*): Number of reactions
+- `reactions_educts` (*list*): Reactants for each reaction
+- `reactions_products` (*list*): Products for each reaction
+- `reactions_reaction_id` (*numpy.ndarray*): Reaction IDs
+- `reactions_itype` (*numpy.ndarray*): Reaction type identifiers
+- `reactions_a` (*numpy.ndarray*): Rate coefficient parameter a
+- `reactions_b` (*numpy.ndarray*): Rate coefficient parameter b
+- `reactions_c` (*numpy.ndarray*): Rate coefficient parameter c
+- `reactions_temp_min` (*numpy.ndarray*): Minimum valid temperatures
+- `reactions_temp_max` (*numpy.ndarray*): Maximum valid temperatures
+- `reactions_pd_data` (*list*): Photodissociation data
+
+#### <span style="background-color:rgba(215, 217, 219, 0.33)">create_reaction_labels(*n_reactions*, *educts*, *products*)</span>
+
+Generates human-readable string representations of chemical reactions.
+
+**Parameters:**
+- `n_reactions` (*int*): Number of reactions to process
+- `educts` (*list*): List of lists containing reactant species names
+- `products` (*list*): List of lists containing product species names
+
+**Returns:**
+- `list`: Formatted strings representing each reaction (e.g., "A + B -> C + D")
+
+#### <span style="background-color:rgba(215, 217, 219, 0.33)">log_section(*title*)</span>
+
+Creates a formatted section header for logging output.
+
+**Parameters:**
+- `title` (*str*): Section title to be displayed
+
+
+
+#### <span style="background-color:rgba(215, 217, 219, 0.33)">log_param(*name*, *value*, *unit=""*)</span>
+
+Formats and logs a parameter with aligned name, value, and optional unit.
+
+**Parameters:**
+- `name` (*str*): Parameter name
+- `value` (*any*): Parameter value
+- `unit` (*str*, optional): Unit of measurement (default: "")
+
+
+#### <span style="background-color:rgba(215, 217, 219, 0.33)">print_dali_cell(*dali_model_outdat_path*, *r*, *z*)</span>
+
+Extracts and displays physical parameters from a specified DALI model cell.
+
+**Parameters:**
+- `dali_model_outdat_path` (*str*): Path to the DALI out.dat file
+- `r` (*int*): Radial index of the cell
+- `z` (*int*): Vertical index of the cell
+
+**Displays:**
+- Gas density and temperature
+- Dust density and temperature
+- Gas-to-dust ratio
+- Visual extinction (Av)
+- UV field strength
+- X-ray ionization rate
+- H2 column density
+
+#### <span style="background-color:rgba(215, 217, 219, 0.33)">create_input(*path_to_output*)</span>
+
+Creates a new input file with default LukeNet parameters.
+
+**Parameters:**
+- `path_to_output` (*str*): Path where the input file should be created
