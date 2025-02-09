@@ -106,11 +106,15 @@ If the solver fails, returns a dictionary with:
 
 <br/>
 
+***
+
 ## calculus.py
 
 
 
 <br/>
+
+***
 
 ## dataclasses.py
 
@@ -269,11 +273,15 @@ Contains simulation parameters and physical constants.
 
 <br/>
 
+***
+
 ## selfshielding.py
 
 
 
 <br/>
+
+***
 
 ## analysis.py
 
