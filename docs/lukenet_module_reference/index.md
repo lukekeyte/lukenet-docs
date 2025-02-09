@@ -55,7 +55,8 @@ The input file should contain the following parameters:
 - `column`: Enable column density calculations [bool]
 - `h2_col`: H2 column density [cm^-2] (if column=True)
 
-#### compute_rate_coefficients(y)
+
+#### <span style="background-color:rgba(215, 217, 219, 0.33)">compute_rate_coefficients(*y*)</span>
 
 Computes reaction rate coefficients for all chemical reactions in the network.
 
@@ -69,18 +70,19 @@ Computes reaction rate coefficients for all chemical reactions in the network.
 - `disso_H2` (*float*): H2 dissociation rate, used for reaction types 90 & 91
 
 Handles various reaction types including:
-- H2 formation on dust grains (Cazaux & Tielens 2002/04, Bosman+22)
-- Hydrogenation reactions (Visser+11)
-- Photodesorption processes (Visser+11)
+- H2 formation on dust grains (Cazaux & Tielens 2002, 2004; Bosman et al. 2022)
+- Hydrogenation reactions (Visser et al. 2011)
+- Photodesorption processes (Visser et al. 2011)
 - Gas-phase reactions with temperature dependencies
 - Photodissociation with self-shielding
-- Cosmic ray induced reactions (Stauber+05, Heays+14, Visser+18)
-- X-ray induced reactions (Stauber+05, Bruderer+09b)
+- Cosmic ray induced reactions (Stauber et al. 2005, Heays et al. 2014, Visser et al. 2018)
+- X-ray induced reactions (Stauber et al. 2005, Bruderer et al. 2009b)
 - PAH/grain charge exchange
-- Thermal desorption and freezeout (Visser+09a, Visser+11)
-- H2 excitation processes (Tielens & Hollenbach 1985, Visser+18)
+- Thermal desorption and freezeout (Visser et al. 2009a, Visser et al. 2011)
+- H2 excitation processes (Tielens & Hollenbach 1985, Visser et al. 2011)
 
-#### solve_network()
+
+#### <span style="background-color:rgba(215, 217, 219, 0.33)">solve_network()</span>
 
 Solves the chemical reaction network using a stiff ODE solver.
 
