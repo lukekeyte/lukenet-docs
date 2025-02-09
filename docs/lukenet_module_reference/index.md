@@ -106,18 +106,96 @@ If the solver fails, returns a dictionary with:
 
 
 
-
+<br/>
 <br/>
 
 ***
 
 ## calculus.py
 
+The calculus module implements core numerical methods for solving chemical reaction networks in LukeNet. It provides high-performance routines for computing reaction rates, species derivatives, and Jacobian matrices, serving as the computational foundation for the chemical network solver.
+
+The module focuses on efficient computation of chemical reaction dynamics through optimized numerical methods. Performance optimization is achieved through Numba JIT compilation and sparse matrix operations.
+
+#### Key Features
+- Fast computation of chemical reaction rates and species derivatives
+- Efficient generation of Jacobian matrices for ODE integration
+- Support for complex reaction networks with multiple reactants and products
+- Performance optimization using Numba JIT compilation
+- Memory-efficient sparse matrix operations
+- Handling of reaction networks with up to 3 reactants and 5 products per reaction
+
+
+#### <span style="background-color:rgba(215, 217, 219, 0.33)">calculate_derivatives(*y*, *k*, *idx*, *ydot*, *nr*)</span>
+
+Computes the formation and destruction rates for all chemical species in the network.
+
+**Parameters:**
+- `y` (*numpy.ndarray*): Species concentrations [cm^-3]
+- `k` (*numpy.ndarray*): Reaction rate coefficients
+- `idx` (*numpy.ndarray*): Reaction indices array with shape (nr, 8), where:
+  - `idx[i, 0:3]`: Indices of up to 3 reactants
+  - `idx[i, 3:8]`: Indices of up to 5 products
+  - Unused indices are set to -1
+- `ydot` (*numpy.ndarray*): Array for storing derivatives
+- `nr` (*int*): Number of reactions
+
+**Returns:**
+A tuple containing:
+- `numpy.ndarray`: Net change rates for each species (formation - destruction)
+- `numpy.ndarray`: Individual reaction rates
+
+**Implementation Notes:**
+- Uses Numba JIT compilation for performance
+- Handles reactions with variable numbers of reactants and products
+- Computes both formation and destruction terms separately
+- Accumulates rates through efficient array operations
+
+#### <span style="background-color:rgba(215, 217, 219, 0.33)">calculate_jacobian_dense(*y*, *k*, *idx*, *nr*)</span>
+
+Computes the dense Jacobian matrix representing partial derivatives of reaction rates.
+
+**Parameters:**
+- `y` (*numpy.ndarray*): Species concentrations [cm^-3]
+- `k` (*numpy.ndarray*): Reaction rate coefficients
+- `idx` (*numpy.ndarray*): Reaction indices array (same format as above)
+- `nr` (*int*): Number of reactions
+
+**Returns:**
+- `numpy.ndarray`: Dense Jacobian matrix with shape (ns, ns), where ns is the number of species
+
+**Implementation Notes:**
+- Optimized with Numba JIT compilation
+- Handles single-reactant and two-reactant reactions separately
+- Computes all partial derivatives efficiently
+- Each matrix element jac[j,i] represents ∂(dy[j]/dt)/∂y[i]
+- Special handling for different reaction types:
+  - Single-reactant reactions affect only one row/column
+  - Two-reactant reactions include cross-terms for species interactions
+
+#### <span style="background-color:rgba(215, 217, 219, 0.33)">calculate_jacobian(*y*, *k*, *idx*, *nr*)</span>
+
+Converts the dense Jacobian matrix to a sparse format for efficient solver operations.
+
+**Parameters:**
+- `y` (*numpy.ndarray*): Species concentrations [cm^-3]
+- `k` (*numpy.ndarray*): Reaction rate coefficients
+- `idx` (*numpy.ndarray*): Reaction indices array (same format as above)
+- `nr` (*int*): Number of reactions
+
+**Returns:**
+- `scipy.sparse.lil_matrix`: Sparse Jacobian matrix in LIL format
+
+**Implementation Notes:**
+- Calls calculate_jacobian_dense internally
+- Converts dense matrix to scipy's LIL sparse format
+- Preserves memory efficiency for large, sparse networks
+- LIL format chosen for efficient matrix construction
 
 
 
 
-
+<br/>
 <br/>
 
 ***
@@ -279,7 +357,7 @@ Contains simulation parameters and physical constants.
 
 
 
-
+<br/>
 <br/>
 
 ***
