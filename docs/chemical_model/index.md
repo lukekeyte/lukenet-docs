@@ -50,12 +50,60 @@ $$
 and cosmic ray photoreactions by:
 
 $$
-k = \alpha \frac{T_\text{gas}}{}
+k = \alpha \frac{\zeta_\text{CR}+\zeta_\text{x}}{0.5} \bigg(\frac{T_\text{gas}}{300 \;\text{K}}\bigg)^\beta
 $$
 where in both cases $\alpha$ is taken from the [UMIST database](https://ui.adsabs.harvard.edu/abs/2007A%26A...466.1197W/abstract), which is normalised to a total rate
 for electron production from cosmic ray ionisation (primarily from $\small{\text{H}}_2$ and $\small{\text{He}}$ in dark clouds) of $\small{\zeta_0} = 1.36 \times 10^{-17} \; \text{s}^{-1}$ [(Prasad & Huntress 1980)](https://ui.adsabs.harvard.edu/abs/1980ApJS...43....1P/abstract). 
+
+
+
+***
+
+<br/>
 
 ## Grain processes
 
 Grain-surface chemistry incorporates $\small{\text{H}}_2$ formation, hydrogenation, freeze-out, thermal desorption, and photodesorption processes. The $\small{\text{H}}_2$ formation rate on grains follows a temperature-dependent efficiency formalism that accounts for both physisorption and chemisorption binding sites ([Cazaux & Tielens 2002](https://ui.adsabs.harvard.edu/abs/2002ApJ...575L..29C/abstract), [2004](https://ui.adsabs.harvard.edu/abs/2004ApJ...604..222C/abstract); [Bosman et al. 2022a](https://ui.adsabs.harvard.edu/abs/2022ApJ...930L..26B/abstract)). Hydrogenation, thermal desorption, and photodesorption are implemented following [Visser et al. (2011)](https://ui.adsabs.harvard.edu/abs/2011A%26A...534A.132V/abstract).
 
+### H₂ formation
+
+### Hydrogenation
+
+$$
+k = \pi a_\text{gr}^2 n_\text{gr} n(\text{H}) f(X) \sqrt{\frac{8kT_\text{gas}}{\pi m_\text{p}}}
+$$
+
+where:
+
+#
+$$
+f(X) = \frac{n_\text{s}(X)}{\text{max}(n_\text{hydro}, N_\text{b}n_\text{gr})}
+$$
+
+
+### Freeze-out
+
+$$
+k =\alpha \pi a_\text{gr}^2 n_\text{gr}  \sqrt{\frac{8kT_\text{gas}}{\pi m_\text{p}}}
+$$
+
+
+
+### Thermal desorption
+
+$$
+k = 4 \pi a_\text{gr}^2 n_\text{gr} f(X) \nu(X)N_\text{ss}\exp{\bigg(-\frac{\beta}{T_\text{dust}}\bigg)}
+$$
+
+where:
+
+#
+$$
+f(X) = \frac{n_\text{s}(X)}{\text{max}(n_\text{ice}, N_\text{b}n_\text{gr})}
+$$
+
+### Photodesorption
+
+$$
+k = \pi a_\text{gr}^2 n_\text{gr} f(X) \alpha F_0 \exp(-\tau_\text{UV})
+$$

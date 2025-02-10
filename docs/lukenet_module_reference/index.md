@@ -200,7 +200,7 @@ Converts the dense Jacobian matrix to a sparse format for efficient solver opera
 
 ***
 
-## dataclasses.py
+## model_classes.py
 
 The `model_classes.py` module serves as the foundational data structure layer for the LukeNet astrochemical network solver. It implements a comprehensive set of Python dataclasses that define and manage the core components of the chemical network simulation.
 
