@@ -75,7 +75,6 @@ $$
 
 where:
 
-#
 $$
 f(X) = \frac{n_\text{s}(X)}{\text{max}(n_\text{hydro}, N_\text{b}n_\text{gr})}
 $$
@@ -97,7 +96,6 @@ $$
 
 where:
 
-#
 $$
 f(X) = \frac{n_\text{s}(X)}{\text{max}(n_\text{ice}, N_\text{b}n_\text{gr})}
 $$
