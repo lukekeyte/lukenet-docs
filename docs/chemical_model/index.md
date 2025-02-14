@@ -56,6 +56,9 @@ where in both cases $\alpha$ is taken from the [UMIST database](https://ui.adsab
 for electron production from cosmic ray ionisation (primarily from $\small{\text{H}}_2$ and $\small{\text{He}}$ in dark clouds) of $\small{\zeta_0} = 1.36 \times 10^{-17} \; \text{s}^{-1}$ [(Prasad & Huntress 1980)](https://ui.adsabs.harvard.edu/abs/1980ApJS...43....1P/abstract). 
 
 
+### Other gas-phase reactions
+
+Describe the other types of gas-phase reactions here.
 
 
 <br/>
@@ -146,9 +149,11 @@ $$
 where $a_\text{gr}$ is the grain radius, $n_\text{gr}$ is the grain number density, $f(X)$ is a factor ensuring desorption scales with surface abundance, $\nu(X)$ is the characteristic vibration frequency of the molecule on the grain surface, $N_\text{ss}$ is the number of binding sites per unit grain area, $E_b(X)$ is the binding energy, $k$ is the Boltzmann constant, and $T_d$ is the dust temperature.
 
 The factor $\small f(X)$ is defined as follows:
+
 $$
 f(X) = \frac{n_\text{s}(X)}{\text{max}(n_\text{ice}, N_\text{b}n_\text{gr})}
 $$
+
 where $\small n_\text{s}(X)$ is the number density of species $\small X$ in the ice, $n_\text{ice}$ is the total number density of all ice species, and $N_\text{b}$ is the number of binding sites per grain. This factor ensures that each species desorbs in proportion to its abundance in the ice, and the desorption behavior transitions naturally from zeroth-order when multiple layers of ice are present to first-order when less than one monolayer remains.
 
 ### Non-thermal desorption
