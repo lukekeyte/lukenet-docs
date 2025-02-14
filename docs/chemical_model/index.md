@@ -6,10 +6,8 @@ $$
 \frac{dn(i,t)}{dt} = \sum_j k_{ij} n(j,t) + \sum_{jl} k_{ijl} n(j,t) n(l,t)
 $$
 where $n(i,t)$ is the abundance ($\small{\text{cm}}^{-3}$) of species $i$ at time $t$, and $k_{ij}$ and $k_{ijl}$ are the respective destruction and formation rates of a given species.
+v## Gas-phase process
 
-## Gas-phase process
-
-### Gas-phase reactions
 Gas-phase reactions follow standard temperature-dependent rate coefficients ($\small{k}$) of the modified Arrhenius form:
 
 $$

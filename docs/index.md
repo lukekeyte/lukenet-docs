@@ -6,7 +6,7 @@
 
 `LukeNet` can be installed using pip:
 ```bash
-pip install lukenet
+pip install lukenet  # not yet working!
 ```
 
 
