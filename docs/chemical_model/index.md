@@ -9,7 +9,7 @@ where $n(i,t)$ is the abundance ($\small{\text{cm}}^{-3}$) of species $i$ at tim
 
 <br/>
 
-## Gas-phase process
+## Gas-phase processes
 
 Gas-phase reactions follow standard temperature-dependent rate coefficients ($\small{k}$) of the modified Arrhenius form:
 
@@ -24,7 +24,7 @@ Photochemical processes, including direct photodissociation and photoionization,
 $$
 k = \alpha \beta G_0 \exp(-\gamma A_\text{V})
 $$
-where $\small{G_0}$ is the integrated FUV field strength in Draine units ($\sim 2.7 \times 10^{-3} \; \text{erg s} ^{-3}\text{cm}^{-2}$), $\small{A_\text{V}}$ is the visual extinction, and $\alpha$, $\beta$, and $\gamma$ are reaction-specific parameters. The model can optionally account for self-shielding effects in $\small{\text{CO}}$, $\small{\text{N}}_2$ , $\small{\text{H}}_2$, and atomic $\small{\text{C}}$, following the prescriptions of [Visser et al. (2009)](https://ui.adsabs.harvard.edu/abs/2009A%26A...503..323V/abstract),[Visser et al. (2018)](https://ui.adsabs.harvard.edu/abs/2018A%26A...615A..75V/abstract), [Draine & Bertoldi (1996)](https://ui.adsabs.harvard.edu/abs/1996ApJ...468..269D/abstract), and [Kamp & Bertoldi (2000)](https://ui.adsabs.harvard.edu/abs/2000A%26A...353..276K/abstract), respectively.
+where $\small{G_0}$ is the integrated FUV field strength in Draine units ($\small \sim 2.7 \times 10^{-3} \; \text{erg s} ^{-3}\text{cm}^{-2}$), $\small{A_\text{V}}$ is the visual extinction, and $\alpha$, $\beta$, and $\gamma$ are reaction-specific parameters. The model can optionally account for self-shielding effects in CO, N₂, H₂, and atomic C, following the prescriptions of [Visser et al. (2009)](https://ui.adsabs.harvard.edu/abs/2009A%26A...503..323V/abstract), [Visser et al. (2018)](https://ui.adsabs.harvard.edu/abs/2018A%26A...615A..75V/abstract), [Draine & Bertoldi (1996)](https://ui.adsabs.harvard.edu/abs/1996ApJ...468..269D/abstract), and [Kamp & Bertoldi (2000)](https://ui.adsabs.harvard.edu/abs/2000A%26A...353..276K/abstract), respectively.
 
 To calculate these self-shielding factors, the code requires the total hydrogen ($\small{H}+{H}_2$) column density between the point of interest and the UV source (denoted $\small{N}_\text{H}$). This can be provided directly by the user, or alternatively, can be approximated using the standard relationship between hydrogen column density and visual extinction eg. [Guver & Ozel (2009)](https://ui.adsabs.harvard.edu/abs/2009MNRAS.400.2050G/abstract):
 
@@ -38,7 +38,6 @@ N_\text{X} = N_\text{H} \times \frac{X}{n_\text{gas}}
 $$
 where $\small{X}$ denotes local number density of the species of interest.
 
-The model also includes cosmic-ray and X-ray ionization processes, with both direct ionization and secondary electron effects. Simple PAH chemistry is incorporated through charge exchange and electron attachment/detachment processes, with PAH abundances scaled relative to ISM values.
 
 
 ### Cosmic-rays
@@ -93,11 +92,13 @@ This formulation allows us to properly account for how the availability of grain
 
 The H₂ formation rate on dust grains can be expressed as:
 
-$$ k = s(\eta) \cdot A \cdot T_\text{gas}^b \cdot \frac{n_\text{gas}}{1 + n_\text{H}} \cdot \text{DG}_{100} $$
+$$ k = s(\eta) \cdot \alpha \cdot T_\text{gas}^b \cdot \frac{n_\text{gas}}{1 + n_\text{H}} \cdot \small{\text{DG}_{100}} $$
 
 where $s$ is the sticking coefficient and $\eta$ is the formation efficiency. The sticking coefficient depends on both gas and dust temperatures:
 
-$$ s = \frac{1}{1 + 0.04\sqrt{T_\text{gas} + T_\text{dust}} + 2\times10^{-3}T_\text{gas} + 8\times10^{-6}T_\text{gas}^2} $$
+$$
+s = \frac{1}{1 + 0.04\sqrt{T_\text{gas} + T_\text{dust}} + 2\times10^{-3} \; T_\text{gas} + 8\times10^{-6} \; T_\text{gas}^2}
+$$
 
 The formation efficiency $\eta$ follows two regimes. For very cold dust ($\small T_\text{dust} < 10 \text{ K}$), $\eta = 1$ as physisorbed H atoms efficiently form H₂. At higher temperatures, the efficiency becomes:
 
