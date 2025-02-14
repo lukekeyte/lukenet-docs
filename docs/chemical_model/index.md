@@ -6,7 +6,10 @@ $$
 \frac{dn(i,t)}{dt} = \sum_j k_{ij} n(j,t) + \sum_{jl} k_{ijl} n(j,t) n(l,t)
 $$
 where $n(i,t)$ is the abundance ($\small{\text{cm}}^{-3}$) of species $i$ at time $t$, and $k_{ij}$ and $k_{ijl}$ are the respective destruction and formation rates of a given species.
-v## Gas-phase process
+
+<br/>
+
+## Gas-phase process
 
 Gas-phase reactions follow standard temperature-dependent rate coefficients ($\small{k}$) of the modified Arrhenius form:
 
@@ -75,11 +78,11 @@ $$ n_\text{gr,100} = 10^{-12} $$
 
 This means that for every trillion gas particles, there is roughly one dust grain when the dust-to-gas ratio is 1:100. The actual grain density used in the chemistry calculations is then:
 
-$$ n_\text{gr} = n_\text{gas} \cdot n_\text{gr,100} \cdot \text{DG}_{100} $$
+$$ n_\text{gr} = n_\text{gas} \cdot n_\text{gr,100} \cdot \small{\text{DG}_{100}} $$
 
-where $\text{DG}_{100}$ is the dust-to-gas ratio normalized to the standard value of 1:100.
+where $\small \text{DG}_{100}$ is the dust-to-gas ratio normalized to the standard value of 1:100.
 
-Each dust grain is assumed to have $N_\text{b} = 10^6$ binding sites where molecules can stick. This number comes from assuming spherical grains with radius $a_\text{gr} = 0.1$ μm and a typical surface site density of $N_\text{ss} = 8 \times 10^{14}$ cm⁻². The total number of sites is then simply the grain surface area multiplied by the site density:
+Each dust grain is assumed to have $\small N_\text{b} = 10^6$ binding sites where molecules can stick. This number comes from assuming spherical grains with radius $a_\text{gr} = 0.1$ μm and a typical surface site density of $\small N_\text{ss} = 8 \times 10^{14}$ cm⁻². The total number of sites is then simply the grain surface area multiplied by the site density:
 
 $$ N_\text{b} = 4\pi a_\text{gr}^2 \cdot N_\text{ss} \approx 10^6 \text{ sites per grain} $$
 
